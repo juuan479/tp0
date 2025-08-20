@@ -17,7 +17,7 @@ int iniciar_servidor(void)
 	getaddrinfo(NULL, PUERTO, &hints, &servinfo);
 
 	// Creamos el socket de escucha del servidor
-    socket_servidor = socket(serverinfo->ai_family,
+    socket_servidor = socket(servinfo->ai_family,
                         server_info->ai_socktype,
                         server_info->ai_protocol);
 	// Asociamos el socket a un puerto
