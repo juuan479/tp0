@@ -18,11 +18,11 @@ int iniciar_servidor(void)
 
 	// Creamos el socket de escucha del servidor
     socket_servidor = socket(servinfo->ai_family,
-                        server_info->ai_socktype,
-                        server_info->ai_protocol);
+                        servinfo->ai_socktype,
+                        servinfo->ai_protocol);
 	// Asociamos el socket a un puerto
     setsockopt(socket_servidor, SOL_SOCKET, SO_REUSEPORT, &(int){1}, sizeof(int));
-    bind(socket_servidor, server_info->ai_addr, server_info->ai_addrlen);
+    bind(socket_servidor, servinfo->ai_addr, servinfo->ai_addrlen);
 	// Escuchamos las conexiones entrantes
     listen(socket_servidor, SOMAXCONN);
 
